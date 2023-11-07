@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import heroImgOne from '../assets/heroImgOne.jpg';
 import { Cart } from '../assets/Cart';
 import ShopCart from '../assets/ShopCart.png';
+import { useParams } from "react-router-dom";
+
 
 
 
@@ -19,13 +21,14 @@ const HomeNewIn = () => {
     const handleHover = () => {
         setIsHovered(true);
     }
-    // Fetching data
+
+    // without a table of images
     useEffect(() => {
       const fetchData = async () => {
         try {
           // End Point
           
-          const response = await axios.get('http://localhost:3001/Home'); 
+          const response = await axios.get('http://localhost:3001/home'); 
           setData(response.data);
           
         }
@@ -35,7 +38,34 @@ const HomeNewIn = () => {
       };
   
       fetchData();
-    }, []);
+    }, []); 
+
+
+  /// with a table for images 
+  const {image} = useParams();
+
+  // useEffect(() => {
+
+  //   const fetchData = async () => {
+  //     try {
+        
+  //       const responseImages = await axios.get(`https://654919d1dd8ebcd4ab243014.mockapi.io/api/products`);
+  //       const responseStrings = await axios.get('https://654919d1dd8ebcd4ab243014.mockapi.io/api/products');
+        
+        
+  //       const combinedData = responseImages.data.map((image, index) => ({
+  //         ...image,
+  //         ...responseStrings.data[index],
+  //       }));
+        
+  //       setData(combinedData);
+  //     } catch (error) {
+  //       console.error('Error', error);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, []);
   
     const currentItems = Array.isArray(data)
       ? data.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
@@ -50,18 +80,21 @@ const HomeNewIn = () => {
           <p className='text-center text-4xl font-medium text-[#5C5C42] pt-8 mt-8 pb-4'>New In</p>
     
             <div className='flex flex-wrap justify-center gap-y-4 gap-x-8 pb-1 mt-8'>  
-            {currentItems.map((card) => (
+            {data.map((card) => (
+            // {data.map((card) => (
+
                 <div className='flex flex-col justify-center'>
                     <div class="mb-4 max-w-[16rem] rounded-[3rem] dark:bg-gray-800 dark:border-gray-700">
                         <Link to={`/product/${card.product_id}`}>
                             <img data-aos="fade-up"
-                data-aos-anchor-placement="center-bottom" key={card.product_id} className="rounded-[2rem] object-cover max-w-[16rem] h-[25rem] hover:opacity-75" src={heroImgOne} alt="product-image" />{/* blog.image */}
+                // data-aos-anchor-placement="center-bottom" key={card.product_id} className="rounded-[2rem] object-cover max-w-[16rem] h-[25rem] hover:opacity-75" src={require(`api/image/${card.image_url}`)} alt="product-image" /> 
+                data-aos-anchor-placement="center-bottom" key={card.product_id} className="rounded-[2rem] object-cover max-w-[16rem] h-[25rem] hover:opacity-75"  alt="product-image" /> 
                         </Link>
                         <div  class="p-5">
                             <Link to={`/product/${card.product_id}`} > 
-                                <p key={card.product_id} class={`${isHovered ? '' : 'truncate'} text-start hover:text-gray-900 text-[#5C5C42] mb-2 text-sm font-medium tracking-tight dark:text-white`}>{card.product_name}{/*blog.blog_title*/}</p>
+                                <p key={card.product_id} class={`${isHovered ? '' : 'truncate'} text-start hover:text-gray-900 text-[#5C5C42] mb-2 text-sm font-medium tracking-tight dark:text-white`}>{card.product_name}</p>
                             </Link>
-                                <p key={card.product_id} class="flex flex-row justify-between text-center hover:text-gray-900 text-[#5C5C42] dark:text-gray-400"><span className='justify-self-start'>$ {card.price}</span><img src={ShopCart} className='w-4 h-4 justify-self-end'/>{/*blog.blog_description*/}</p>
+                                <p key={card.product_id} class="flex flex-row justify-between text-center hover:text-gray-900 text-[#5C5C42] dark:text-gray-400"><span className='justify-self-start'>$ {card.price}</span><img className='w-4 h-4 justify-self-end'/></p>
                         </div> 
                     </div>  
                 </div>

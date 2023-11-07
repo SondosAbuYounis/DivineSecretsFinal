@@ -3,16 +3,22 @@ import { Button, Nav, NavItem } from "reactstrap";
 import { Link, useLocation } from "react-router-dom";
 
 const navigation = [
+  
   {
     title: "Dashboard",
     href: "/starter",
     icon: "bi bi-speedometer2",
   },
-  // {
-  //   title: "Alert",
-  //   href: "/alerts",
-  //   icon: "bi bi-bell",
-  // },
+  {
+    title: "Tables",
+    href: "/table",
+    icon: "bi bi-layout-split",
+  },
+  {
+    title: "Admins",
+    href: "/alerts",
+    icon: "bi bi-bell",
+  },
   // {
   //   title: "Badges",
   //   href: "/badges",
@@ -29,30 +35,28 @@ const navigation = [
     icon: "bi bi-card-text",
   },
   {
-    title: "Orders",
-    href: "/grid",
-    icon: "bi bi-columns",
-  },
-  {
-    title: "Tables",
-    href: "/table",
-    icon: "bi bi-layout-split",
-  },
-  {
     title: "Add a product",
     href: "/forms",
     icon: "bi bi-textarea-resize",
   },
-  // {
-  //   title: "Breadcrumbs",
-  //   href: "/breadcrumbs",
-  //   icon: "bi bi-link",
-  // },
-  // {
-  //   title: "About",
-  //   href: "/about",
-  //   icon: "bi bi-people",
-  // },
+  {
+    title: "Add a category",
+    href: "/breadcrumbs",
+    icon: "bi bi-link",
+  },
+  {
+    title: "Orders",
+    href: "/grid",
+    icon: "bi bi-columns",
+  },
+  
+  
+  
+  {
+    title: "Messages",
+    href: "/about",
+    icon: "bi bi-people",
+  },
 ];
 
 const Sidebar = () => {

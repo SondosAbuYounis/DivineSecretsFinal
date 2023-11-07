@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 export const Footer = () => {
   return (
     <>
-    <footer class=" dark:bg-gray-900 bg-[#E8E59B]">
+    <footer class=" dark:bg-gray-900 bg-[#5C5C4220]">
         <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
             <div class="md:flex md:justify-between">
               <div class="mb-6 md:mb-0">
@@ -16,9 +16,9 @@ export const Footer = () => {
                   <div>
                       <ul class="text-[#5C5C42] font-normal text-gray-500 dark:text-gray-400 font-medium">
                           <li class="mb-4">
-                              <Link to='/' class="hover:underline">Home</Link>
+                              <Link to='/' class="text-[#5C5C42] hover:underline">Home</Link>
                           </li>
-                          <li class="mb-4">
+                          <li class="mb-4 text-[#5C5C42]">
                               <Link to='/shopall' class="hover:underline">Shop All</Link>
                           </li>
                       </ul>
@@ -26,16 +26,16 @@ export const Footer = () => {
                   <div>
                       <ul class="text-[#5C5C42] font-normal text-gray-500 dark:text-gray-400 font-medium">
                           <li>
-                              <Link to='/aboutus' class="hover:underline">About Us</Link>
+                              <Link to='/aboutus' class="text-[#5C5C42] hover:underline">About Us</Link>
                           </li>
                           <li>
-                            <Link to='/contactus' class="hover:underline">Contact Us</Link>                          </li>
+                            <Link to='/contactus' class="text-[#5C5C42] hover:underline">Contact Us</Link>                          </li>
                           </ul>
                   </div>
                   <div>
-                      <ul class="text-[#5C5C42] font-normal text-gray-500 dark:text-gray-400 font-medium">
+                      <ul class="text-[#5C5C42] font-normal text-[#5C5C42] dark:text-gray-400 font-medium">
                           <li class="text-[#5C5C42] mb-4">
-                              <Link to='/' class="hover:underline">Privacy Policy</Link>
+                              <Link to='/' class="hover:underline text-[#5C5C42]">Privacy Policy</Link>
                           </li>
                       </ul>
                   </div>
@@ -43,11 +43,11 @@ export const Footer = () => {
           </div>
           <hr class="my-6 border-[#5C5C42] sm:mx-auto dark:border-gray-700 lg:my-8" />
           <div class="sm:flex sm:items-center sm:justify-between">
-              <span class="text-[#5C5C42] text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <Link to='/' class="hover:underline">Divine Secrets™</Link>. All Rights Reserved.
+              <span class="text-[#5C5C42] text-sm  sm:text-center dark:text-gray-400">© 2023 <Link to='/' class="text-[#5C5C42] hover:underline">Divine Secrets™</Link>. All Rights Reserved.
               </span>
               <div class=" flex mt-4 space-x-5 sm:justify-center sm:mt-0">
-                  <a href="#" class="text-[#5C5C42] text-gray-500 hover:text-gray-900 dark:hover:text-white">Facebook</a>
-                  <a href="#" class="text-[#5C5C42] text-gray-500 hover:text-gray-900 dark:hover:text-white">Instagram</a>
+                  <a href="#" class="text-[#5C5C42]  hover:text-gray-900 dark:hover:text-white">Facebook</a>
+                  <a href="#" class="text-[#5C5C42]  hover:text-gray-900 dark:hover:text-white">Instagram</a>
               </div>
           </div>
         </div>

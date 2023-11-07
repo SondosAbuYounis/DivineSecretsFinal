@@ -57,7 +57,7 @@ const Starter = () => {
             title="Profit"
             subtitle="Yearly Earning"
             earning="$21k"
-            icon="bi bi-wallet"
+            icon="bi bi-bag-check"
             
           />
         </Col>
@@ -106,7 +106,7 @@ const Starter = () => {
         </Col> */}
       </Row>
       {/***Blog Cards***/}
-      <Row>
+      {/* <Row>
         {BlogData.map((blg, index) => (
           <Col sm="6" lg="6" xl="3" key={index}>
             <Blog
@@ -118,7 +118,7 @@ const Starter = () => {
             />
           </Col>
         ))}
-      </Row>
+      </Row> */}
     </div>
   );
 };

@@ -2,6 +2,7 @@ import ProjectTables from "../../components/dashboard/ProjectTable";
 import ProductTable from "../../components/dashboard/ProductTable";
 import { Row, Col, Table, Card, CardTitle, CardBody } from "reactstrap";
 import OrdersTables from "./Grid";
+import About from "../About";
 
 const Tables = () => {
   return (
@@ -13,6 +14,7 @@ const Tables = () => {
         <ProjectTables />
         <ProductTable />
         <OrdersTables />
+        <About />
       </Col>
       {/* --------------------------------------------------------------------------------*/}
       {/* table-2*/}

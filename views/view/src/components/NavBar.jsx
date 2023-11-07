@@ -4,6 +4,7 @@ import logoDIVINE from '../assets/logoDIVINE.png'
 import ShopCart from '../assets/ShopCart.png'
 import ProfileTwo from '../assets/ProfileTwo.png'
 import Cookies from 'js-cookie';
+import swal from 'sweetalert';
 
 
 export const Navbar = (props) => {
@@ -11,6 +12,7 @@ export const Navbar = (props) => {
   // const [loggedIn, setLoggedIn] = useState(false);
   const [isOpenProfile, setOpenProfile] = React.useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isUserIn, setIsUserIn] = useState(false);
 
   function signOut() {
     props.setUserLogin(false);
@@ -31,65 +33,77 @@ export const Navbar = (props) => {
   const handleLoginClick = () => {
     console.log("smiokmiscmklkls");
   };
+  // const handleCloseSuccessModal = () => {
+  //   setShowSuccessModal(false);
+  // };
 
-  const loginNav = props.userLogin ? (
-    <div className="relative">
-    <button
-      type="button"
-      className="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
-      id="user-menu-button"
-      aria-expanded="false"
-      data-dropdown-toggle="user-dropdown"
-      data-dropdown-placement="bottom"
-      onClick={() => {
-        setOpenProfile(!isOpenProfile);
-      }}
-    >
-      <span className="sr-only">Open user menu</span>
-      <img
-        className="w-10 h-10 rounded-full"
-        src="/docs/images/people/profile-picture-3.jpg"
-        alt=""
-      />
-    </button>
-    <div
-      className={`absolute top-7 z-50 ${
-        isOpenProfile ? "" : "hidden"
-      } my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600`}
-      id="user-dropdown"
-    >
-      <div className="px-4 py-3">
-        <span className="block text-sm text-gray-900 dark:text-white">
-          name
-        </span>
-        <span className="block text-sm  text-gray-500 truncate dark:text-gray-400">
-          email
-        </span>
+  const handleCart = () => {
+   if (!props.userLogin) {               
+    swal("You're not signed in!")
+     }  
+    };
+
+const loginNav = props.userLogin ? (
+<div className="relative" >
+        <button
+          type="button"
+          className="flex mr-3 text-sm bg-transparent rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+          id="user-menu-button"
+          aria-expanded="false"
+          data-dropdown-toggle="user-dropdown"
+          data-dropdown-placement="bottom"
+          onClick={() => {
+            setOpenProfile(!isOpenProfile);
+          }}
+        >
+          <span className="sr-only">Open user menu</span>
+            <img
+                className="w-10 h-10 rounded-full"
+                src="/docs/images/people/profile-picture-3.jpg"
+                alt=""
+            />
+        </button>
+        <div
+          className={`absolute top-7 right-7 z-50 ${
+            isOpenProfile ? "" : "hidden"
+          } w-[16rem] my-4 text-base list-none bg-[#5C5C4220] white divide-y divide-[#5C5C4250] rounded-[1rem] shadow dark:bg-gray-700 dark:divide-gray-600`}
+          id="user-dropdown"
+        >
+          <div className="px-4 py-3" >
+            <span className="block text-semibold text-[#5C5C42] dark:text-white">
+              name
+            </span>
+            <span className="block text-sm  text-[#5C5C42] truncate dark:text-gray-400">
+              email
+            </span>
+          </div>
+          <ul className="py-2" aria-labelledby="user-menu-button">
+          <li>
+              <Link
+                to="/profile"
+                className="block px-4 py-2 text-sm text-[#5C5C42] hover:bg-[#5C5C4250] dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+              >
+                Settings
+              </Link>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="block px-4 py-2 text-sm text-[#5C5C42] hover:bg-[#5C5C4250] dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white whitespace-nowrap"
+                onClick={signOut}
+              >
+                Sign out
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
-      <ul className="py-2" aria-labelledby="user-menu-button">
-      <li>
-          <a
-            href="#"
-            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-          >
-            Settings
-          </a>
-        </li>
-        <li>
-          <a
-            href="#"
-            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white whitespace-nowrap"
-            onClick={signOut}
-          >
-            Sign out
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-
+    
   ) : (
-
+    <>
+    <div className=" flex flex-row gap-2">
+    
+    <button type="button" onClick={handleCart} aria-expanded={isUserIn} className='mt-0'><img src={ShopCart} className={`mt-2 w-6 h-6 justify-self-end hover:scale-150`} alt="Shop Cart" /></button>
     <button
       type="button"
       onClick={handleLoginClick}
@@ -97,12 +111,18 @@ export const Navbar = (props) => {
     >
       SIGN UP/IN
     </button>
+    
+</div>
+
+
+    </>
   )
 
 
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
 
   return (
     <nav className="bg-[#FEFAF0] border-gray-200 dark:bg-gray-900">
@@ -180,12 +200,20 @@ export const Navbar = (props) => {
                         </Link>
                         </div> */}
 
+
+
+
+
+            {/* const loginCart = props.userLogin ? ( */}
               <div className=" flex flex-row gap-4">
-                <Link to="/signup">
-                  <img src={ShopCart} className="absolute top-1 right-12 w-6 h-6 justify-self-end hover:scale-150" alt="Shop Cart" />
-                </Link>
-                {loginNav}
+                {/* <Link to="/shoppingcart">
+                  <button type="button" onClick={handleMenuToggle} ><img src={ShopCart} className="mt-2 w-6 h-6 justify-self-end hover:scale-150" alt="Shop Cart" /></button>
+                </Link> */}
+                <Link to="/signup"> {loginNav}</Link>
               </div>
+              {/* ) : (
+
+                ) */}
 
             </div>
           </ul>
@@ -197,3 +225,21 @@ export const Navbar = (props) => {
   );
 }
 
+
+// MODAL 
+
+
+{/* <div className={`fixed inset-0 flex items-center justify-center z-50 `}>
+<div className="absolute inset-0 bg-black opacity-50"></div>
+<div className="relative bg-white rounded-lg shadow p-4 dark:bg-gray-800">
+  <h2 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">Your not logged in</h2>
+  <p className="text-gray-700 dark:text-gray-300">Please Sign in to access cart</p>
+
+  <Link to='/signin' >
+  <button
+    className="text-primary-600 hover:underline dark:text-primary-500 mt-4"
+  >
+    Sign In
+  </button>
+  </Link>
+  </div> */}

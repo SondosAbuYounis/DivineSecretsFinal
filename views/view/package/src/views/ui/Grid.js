@@ -126,9 +126,9 @@ const OrdersTables = () => {
     <div style={{ backgroundColor: '#FEFAF0'}}>
       <Card  style={{ backgroundColor: '#FEFAF0'}}>
         <CardBody style={{ backgroundColor: 'transparent', boxShadow:'none'}}>
-          <CardTitle tag="h5">Users</CardTitle>
+          <CardTitle tag="h5">Orders</CardTitle>
           <CardSubtitle className="mb-2 text-muted" tag="h6">
-            Overview of the users
+            Overview of the orders
           </CardSubtitle>
 
           <Table style={{ backgroundColor: '#403F2B20'}} className="no-wrap mt-3 align-middle bg-[#403F2B20]" responsive borderless>
